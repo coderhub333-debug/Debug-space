@@ -1180,18 +1180,39 @@
             Receive private batch invitations and salon previews. Never more
             than twice monthly.
           </p>
-          <div class="flex mt-space-sm">
-            <input
-              class="flex-1 bg-surface text-primary border border-surface-variant px-space-sm py-2 text-body-sm focus:outline-none focus:border-primary"
-              placeholder="Your email address"
-              type="email"
-            />
-            <button
-              class="bg-primary text-on-primary px-space-md py-2 font-label-caps text-label-caps uppercase tracking-wider hover:bg-secondary transition-colors"
-            >
-              Join
-            </button>
-          </div>
+          <form
+            id="newsletter-form"
+            class="flex mt-space-sm flex-col"
+            aria-labelledby="newsletter-heading"
+          >
+            <div class="flex">
+              <label
+                for="newsletter-email"
+                class="sr-only"
+                id="newsletter-heading"
+                >Your email address</label
+              >
+              <input
+                id="newsletter-email"
+                class="flex-1 bg-surface text-primary border border-surface-variant px-space-sm py-2 text-body-sm focus:outline-none focus:border-primary focus-visible:ring-2"
+                placeholder="Your email address"
+                type="email"
+                required
+                aria-describedby="newsletter-msg"
+              />
+              <button
+                type="submit"
+                class="bg-primary text-on-primary px-space-md py-2 font-label-caps text-label-caps uppercase tracking-wider hover:bg-secondary transition-colors focus-visible:ring-2"
+              >
+                Join
+              </button>
+            </div>
+            <p
+              id="newsletter-msg"
+              class="text-sm mt-2 text-primary empty:hidden"
+              aria-live="polite"
+            ></p>
+          </form>
         </div>
         <!-- Atelier Locations -->
         <div class="grid grid-cols-3 gap-space-xs py-space-xs">
@@ -1568,11 +1589,15 @@
           var valid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value);
           if (!valid) {
             msg.textContent = 'Please enter a valid email address.';
-            msg.classList.add('is-error');
+            msg.classList.remove('text-primary');
+            msg.classList.add('text-error');
+            input.setAttribute('aria-invalid', 'true');
             input.focus();
             return;
           }
-          msg.classList.remove('is-error');
+          msg.classList.remove('text-error');
+          msg.classList.add('text-primary');
+          input.removeAttribute('aria-invalid');
           msg.textContent = 'Thank you — you are on the list. Check your inbox to confirm.';
           form.reset();
         });
