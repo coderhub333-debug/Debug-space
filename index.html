@@ -422,6 +422,11 @@
   <body
     class="bg-background text-on-surface antialiased selection:bg-surface-variant selection:text-primary min-h-screen pb-20"
   >
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:p-4 focus:bg-surface focus:text-primary"
+      >Skip to main content</a
+    >
     <!-- ========================================================================= -->
     <!-- 1. TopAppBar (Shared Component JSON Blueprint)                             -->
     <!-- ========================================================================= -->
@@ -482,6 +487,7 @@
           >ÉLARA ATELIER</span
         >
         <button
+          aria-label="Close Navigation Menu"
           class="p-space-xs text-on-surface-variant hover:text-primary transition-colors"
           id="close-drawer-btn"
         >
@@ -559,7 +565,7 @@
     <!-- ========================================================================= -->
     <!-- 2. Hero Section                                                           -->
     <!-- ========================================================================= -->
-    <main class="pt-[62px]">
+    <main id="main-content" class="pt-[62px]">
       <section
         class="relative px-margin-mobile pt-space-lg pb-space-lg flex flex-col"
       >
@@ -1630,36 +1636,7 @@
     >
       <select
         id="lang-switcher"
-        onchange="changeLanguage(this.value)"
-        style="
-          border: none;
-          background: transparent;
-          font-family: var(--sans);
-          font-size: 14px;
-          cursor: pointer;
-          outline: none;
-        "
-      >
-        <option value="en">English</option>
-        <option value="es">Español</option>
-        <option value="fr">Français</option>
-      </select>
-    </div>
-    <div
-      style="
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 10000;
-        background: var(--white);
-        padding: 5px 10px;
-        border: 1px solid var(--line);
-        border-radius: 4px;
-        box-shadow: var(--shadow-md);
-      "
-    >
-      <select
-        id="lang-switcher"
+        aria-label="Select Language"
         onchange="changeLanguage(this.value)"
         style="
           border: none;
