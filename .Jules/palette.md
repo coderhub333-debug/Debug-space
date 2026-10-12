@@ -11,3 +11,7 @@
 1. Missing a "Skip to main content" link, forcing users to tab through hidden navigation menus every time the page loads.
 2. A language selection dropdown was visually floating but duplicated in the HTML, creating invalid duplicate IDs (`#lang-switcher`) which could cause buggy behavior with JS or confuse screen readers.
 **Action:** Added a visually hidden (but focusable) skip link right after the opening body tag. Cleaned up the redundant language switcher and added an `aria-label` to the remaining one. Always verify that interactive components use unique IDs and that a keyboard-accessible skip link exists on every page.
+
+## 2024-10-24 - Stateful Icon-Only Buttons
+**Learning:** Icon-only toggle buttons (like a wishlist heart) need multiple cues for state changes. Visually, replacing `transition-colors` with `transition-all active:scale-90` adds a tactile "pop" effect, and dynamically updating the icon fill and color clarifies the active state. Accessibly, toggling `aria-pressed` alone is sometimes less clear than dynamically updating the `aria-label` (e.g., "Save to Wishlist" vs "Remove from Wishlist") in tandem.
+**Action:** Always ensure toggleable icons provide tactile feedback, visual state changes (like fill), and dynamic `aria-label` updates for screen readers.
