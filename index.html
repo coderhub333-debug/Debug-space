@@ -290,6 +290,14 @@
         line-height: 1;
       }
 
+      .wish-btn[aria-pressed="true"] .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 1,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+
       /* Drawer & Backdrop Fixes for old script */
       #drawer.is-open {
         transform: translateX(0) !important;
@@ -720,7 +728,8 @@
               </div>
               <button
                 aria-label="Save to Wishlist"
-                class="wish-btn absolute top-space-sm right-space-sm w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-colors"
+                aria-pressed="false"
+                class="wish-btn absolute top-space-sm right-space-sm w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-all active:scale-90 aria-[pressed=true]:text-secondary"
               >
                 <span class="material-symbols-outlined text-[18px]"
                   >favorite</span
@@ -784,7 +793,8 @@
               </div>
               <button
                 aria-label="Save to Wishlist"
-                class="wish-btn absolute top-space-sm right-space-sm w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-colors"
+                aria-pressed="false"
+                class="wish-btn absolute top-space-sm right-space-sm w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-all active:scale-90 aria-[pressed=true]:text-secondary"
               >
                 <span class="material-symbols-outlined text-[18px]"
                   >favorite</span
@@ -1555,6 +1565,7 @@
           btn.addEventListener('click', function () {
             var on = btn.getAttribute('aria-pressed') === 'true';
             btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+            btn.setAttribute('aria-label', on ? 'Save to Wishlist' : 'Remove from Wishlist');
             showToast(on ? 'Removed from wishlist' : 'Saved to wishlist');
           });
         });
