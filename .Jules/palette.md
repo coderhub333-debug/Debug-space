@@ -15,3 +15,7 @@
 ## 2024-10-24 - Stateful Icon-Only Buttons
 **Learning:** Icon-only toggle buttons (like a wishlist heart) need multiple cues for state changes. Visually, replacing `transition-colors` with `transition-all active:scale-90` adds a tactile "pop" effect, and dynamically updating the icon fill and color clarifies the active state. Accessibly, toggling `aria-pressed` alone is sometimes less clear than dynamically updating the `aria-label` (e.g., "Save to Wishlist" vs "Remove from Wishlist") in tandem.
 **Action:** Always ensure toggleable icons provide tactile feedback, visual state changes (like fill), and dynamic `aria-label` updates for screen readers.
+
+## 2024-10-25 - Filter Pills ARIA & CSS Selection
+**Learning:** For horizontal filter pills (tabs), pairing `aria-pressed="true"` (or false) with Tailwind's `aria-[pressed=true]:...` state selectors provides a clean, robust way to handle visual active states. It avoids complex JS class toggling while simultaneously keeping the DOM semantics perfectly aligned for screen readers. Additionally, filtering elements often update the DOM, so adding a visually hidden `aria-live` region (`#filter-status`) is critical to announce the filtered result count to assistive technology.
+**Action:** When building interactive filters or custom radio-like groups, drive the visual styling natively through the `aria-pressed` or `aria-selected` attributes using CSS variants instead of redundant utility classes. Always pair dynamic filtering with an `aria-live` status element.
