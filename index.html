@@ -443,15 +443,17 @@
     >
       <div class="flex items-center gap-space-sm">
         <button
+          title="Open Navigation Menu"
           aria-label="Open Navigation Menu"
-          class="p-space-xs text-primary dark:text-inverse-primary hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200"
+          class="focus-visible:ring-2 focus-visible:outline-none rounded p-space-xs text-primary dark:text-inverse-primary hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200"
           id="open-drawer-btn"
         >
           <span class="material-symbols-outlined text-[24px]">menu</span>
         </button>
         <button
+          title="Search Collection"
           aria-label="Search Collection"
-          class="p-space-xs text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-200"
+          class="focus-visible:ring-2 focus-visible:outline-none rounded p-space-xs text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-200"
         >
           <span class="material-symbols-outlined text-[20px]">search</span>
         </button>
@@ -465,9 +467,10 @@
       </a>
       <div class="flex items-center gap-space-xs">
         <button
+          title="Curated Bag"
           id="cart-open"
           aria-label="Curated Bag"
-          class="relative p-space-xs text-primary dark:text-inverse-primary hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200"
+          class="focus-visible:ring-2 focus-visible:outline-none rounded relative p-space-xs text-primary dark:text-inverse-primary hover:text-secondary dark:hover:text-secondary-fixed transition-colors duration-200"
         >
           <span class="material-symbols-outlined text-[22px]"
             >shopping_bag</span
@@ -495,10 +498,10 @@
           >ÉLARA ATELIER</span
         >
         <button
+          title="Close Navigation Menu"
           aria-label="Close Navigation Menu"
-          class="p-space-xs text-on-surface-variant hover:text-primary transition-colors"
+          class="focus-visible:ring-2 focus-visible:outline-none rounded p-space-xs text-on-surface-variant hover:text-primary transition-colors"
           id="close-drawer-btn"
-          aria-label="Close Navigation Menu"
         >
           <span class="material-symbols-outlined text-[24px]">close</span>
         </button>
@@ -727,9 +730,10 @@
                 >
               </div>
               <button
+                title="Save to Wishlist"
                 aria-label="Save to Wishlist"
                 aria-pressed="false"
-                class="wish-btn absolute top-space-sm right-space-sm w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-all active:scale-90 aria-[pressed=true]:text-secondary"
+                class="wish-btn focus-visible:ring-2 focus-visible:outline-none absolute top-space-sm right-space-sm w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-all active:scale-90 aria-[pressed=true]:text-secondary"
               >
                 <span class="material-symbols-outlined text-[18px]"
                   >favorite</span
@@ -792,9 +796,10 @@
                 >
               </div>
               <button
+                title="Save to Wishlist"
                 aria-label="Save to Wishlist"
                 aria-pressed="false"
-                class="wish-btn absolute top-space-sm right-space-sm w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-all active:scale-90 aria-[pressed=true]:text-secondary"
+                class="wish-btn focus-visible:ring-2 focus-visible:outline-none absolute top-space-sm right-space-sm w-8 h-8 rounded-full bg-surface/80 backdrop-blur-md flex items-center justify-center text-primary hover:text-secondary transition-all active:scale-90 aria-[pressed=true]:text-secondary"
               >
                 <span class="material-symbols-outlined text-[18px]"
                   >favorite</span
@@ -1352,8 +1357,13 @@
         <h2 id="cart-title" class="text-xl font-serif">
           Your Bag (<span id="cart-count">0</span>)
         </h2>
-        <button class="cart-close" id="cart-close" aria-label="Close bag">
-          X
+        <button
+          title="Close bag"
+          class="focus-visible:ring-2 focus-visible:outline-none rounded cart-close"
+          id="cart-close"
+          aria-label="Close bag"
+        >
+          <span class="material-symbols-outlined">close</span>
         </button>
       </div>
       <div class="cart-body" id="cart-body">
@@ -1566,6 +1576,7 @@
             var on = btn.getAttribute('aria-pressed') === 'true';
             btn.setAttribute('aria-pressed', on ? 'false' : 'true');
             btn.setAttribute('aria-label', on ? 'Save to Wishlist' : 'Remove from Wishlist');
+            btn.setAttribute('title', on ? 'Save to Wishlist' : 'Remove from Wishlist');
             showToast(on ? 'Removed from wishlist' : 'Saved to wishlist');
           });
         });
