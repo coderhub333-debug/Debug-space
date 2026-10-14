@@ -654,35 +654,46 @@
         class="sticky top-[58px] z-40 bg-surface/95 backdrop-blur-md border-y border-surface-variant/40 py-space-xs"
       >
         <div
+          id="filter-status"
+          class="sr-only"
+          aria-live="polite"
+          role="status"
+        ></div>
+        <div
           class="flex items-center gap-space-xs overflow-x-auto no-scrollbar px-margin-mobile"
         >
           <button
-            class="filter-btn shrink-0 px-3.5 py-1.5 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wider"
+            class="filter-btn shrink-0 px-3.5 py-1.5 bg-primary text-on-primary font-label-caps text-label-caps uppercase tracking-wider focus-visible:ring-2 focus-visible:outline-none aria-[pressed=true]:bg-primary aria-[pressed=true]:text-on-primary aria-[pressed=false]:bg-surface-container aria-[pressed=false]:text-on-surface-variant aria-[pressed=false]:hover:text-primary transition-colors"
             data-filter="all"
+            aria-pressed="true"
           >
             All Creations
           </button>
           <button
-            class="filter-btn shrink-0 px-3.5 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase tracking-wider transition-colors"
-            data-filter="other"
+            class="filter-btn shrink-0 px-3.5 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase tracking-wider focus-visible:ring-2 focus-visible:outline-none aria-[pressed=true]:bg-primary aria-[pressed=true]:text-on-primary aria-[pressed=false]:bg-surface-container aria-[pressed=false]:text-on-surface-variant aria-[pressed=false]:hover:text-primary transition-colors"
+            data-filter="evening"
+            aria-pressed="false"
           >
             Evening Gowns
           </button>
           <button
-            class="filter-btn shrink-0 px-3.5 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase tracking-wider transition-colors"
-            data-filter="other"
+            class="filter-btn shrink-0 px-3.5 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase tracking-wider focus-visible:ring-2 focus-visible:outline-none aria-[pressed=true]:bg-primary aria-[pressed=true]:text-on-primary aria-[pressed=false]:bg-surface-container aria-[pressed=false]:text-on-surface-variant aria-[pressed=false]:hover:text-primary transition-colors"
+            data-filter="day"
+            aria-pressed="false"
           >
             Day Dresses
           </button>
           <button
-            class="filter-btn shrink-0 px-3.5 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase tracking-wider transition-colors"
-            data-filter="other"
+            class="filter-btn shrink-0 px-3.5 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase tracking-wider focus-visible:ring-2 focus-visible:outline-none aria-[pressed=true]:bg-primary aria-[pressed=true]:text-on-primary aria-[pressed=false]:bg-surface-container aria-[pressed=false]:text-on-surface-variant aria-[pressed=false]:hover:text-primary transition-colors"
+            data-filter="linen"
+            aria-pressed="false"
           >
             Casual Linen
           </button>
           <button
-            class="filter-btn shrink-0 px-3.5 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase tracking-wider transition-colors"
-            data-filter="other"
+            class="filter-btn shrink-0 px-3.5 py-1.5 bg-surface-container text-on-surface-variant hover:text-primary font-label-caps text-label-caps uppercase tracking-wider focus-visible:ring-2 focus-visible:outline-none aria-[pressed=true]:bg-primary aria-[pressed=true]:text-on-primary aria-[pressed=false]:bg-surface-container aria-[pressed=false]:text-on-surface-variant aria-[pressed=false]:hover:text-primary transition-colors"
+            data-filter="accessories"
+            aria-pressed="false"
           >
             Fine Accessories
           </button>
@@ -711,7 +722,8 @@
         <div class="grid grid-cols-1 gap-y-space-xl">
           <!-- Card 1 -->
           <article
-            class="flex flex-col bg-surface-container-low border border-surface-variant/40"
+            class="product-card flex flex-col bg-surface-container-low border border-surface-variant/40"
+            data-category="evening"
           >
             <div
               class="relative w-full aspect-[3/4] overflow-hidden bg-surface-dim"
@@ -777,7 +789,8 @@
           </article>
           <!-- Card 2 -->
           <article
-            class="flex flex-col bg-surface-container-low border border-surface-variant/40"
+            class="product-card flex flex-col bg-surface-container-low border border-surface-variant/40"
+            data-category="day"
           >
             <div
               class="relative w-full aspect-[3/4] overflow-hidden bg-surface-dim"
@@ -846,7 +859,8 @@
           <div class="grid grid-cols-2 gap-space-sm">
             <!-- Card 3 -->
             <article
-              class="flex flex-col bg-surface-container-low border border-surface-variant/40"
+              class="product-card flex flex-col bg-surface-container-low border border-surface-variant/40"
+              data-category="linen"
             >
               <div
                 class="relative w-full aspect-[4/5] overflow-hidden bg-surface-dim"
@@ -894,7 +908,8 @@
             </article>
             <!-- Card 4 -->
             <article
-              class="flex flex-col bg-surface-container-low border border-surface-variant/40"
+              class="product-card flex flex-col bg-surface-container-low border border-surface-variant/40"
+              data-category="accessories"
             >
               <div
                 class="relative w-full aspect-[4/5] overflow-hidden bg-surface-dim"
