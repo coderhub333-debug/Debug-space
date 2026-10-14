@@ -15,3 +15,7 @@
 ## 2024-10-24 - Stateful Icon-Only Buttons
 **Learning:** Icon-only toggle buttons (like a wishlist heart) need multiple cues for state changes. Visually, replacing `transition-colors` with `transition-all active:scale-90` adds a tactile "pop" effect, and dynamically updating the icon fill and color clarifies the active state. Accessibly, toggling `aria-pressed` alone is sometimes less clear than dynamically updating the `aria-label` (e.g., "Save to Wishlist" vs "Remove from Wishlist") in tandem.
 **Action:** Always ensure toggleable icons provide tactile feedback, visual state changes (like fill), and dynamic `aria-label` updates for screen readers.
+
+## 2024-11-09 - Accessible and Visible Icon-Only Buttons
+**Learning:** Found multiple icon-only buttons (like Menu, Search, Cart) that had `aria-label` for screen readers but lacked native tooltips (`title` attribute) for mouse users to discover their function, and lacked `focus-visible` styles for keyboard users navigating the site.
+**Action:** Added `title` attributes (matching the `aria-label`) and explicit focus styles (`focus-visible:ring-2 focus-visible:outline-none rounded`) to all icon-only buttons. Always ensure icon-only buttons communicate their intent to all users (screen reader, mouse, and keyboard).
