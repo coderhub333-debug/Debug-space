@@ -1,3 +1,6 @@
+## 2024-03-24 - Accessibility: Use standard `alt` attributes instead of `data-alt`
+**Learning:** Found a pattern where image descriptions were using `data-alt` instead of `alt`. Screen readers typically do not announce `data-*` attributes by default, making these images inaccessible to visually impaired users relying on assistive technologies.
+**Action:** Always ensure that images intended to convey meaning use the standard `alt` attribute instead of custom data attributes.
 ## 2024-05-18 - Newsletter Form Accessibility
 **Learning:** Found a common anti-pattern where a newsletter subscription used a `div` and raw `input` rather than a `<form>` tag. This prevents native form submission via the "Enter" key and fails to provide programmatic context to screen readers.
 **Action:** Replaced the `div` wrapper with a `<form>`, added a visually hidden `<label>`, `type="submit"` to the button, `aria-live` for error states, and added explicit `focus-visible` ring indicators. Next time, always look for interactive inputs that aren't wrapped in `<form>` tags.
